@@ -55,7 +55,7 @@ $().ready(() => {
 
   Animal.prototype.createHtml = function () {
     //get template from html
-    let template = $("#beast").html();
+    let template = $("#beast2").html();
     //use mustache to create new instance of template with object from data
     let html = Mustache.render(template, this);
     //return html from this method

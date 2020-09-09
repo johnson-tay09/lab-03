@@ -6,10 +6,13 @@ img {
   border-radius: 10px;
   box-shadow: 5px 10px #888888;
 }
-
+main {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+}
 section {
   margin-left: 20px;
-  float: left;
 }
 h2 {
   padding: 3px;
@@ -20,7 +23,7 @@ h2 {
 p {
   margin-top: 20px;
   width: 200px;
-  height: 90px;
+  /* height: 90px; */
   padding: 2px;
 }
 h1 {
