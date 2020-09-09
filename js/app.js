@@ -1,9 +1,5 @@
 "use strict";
-//use ajax to read json file
-//create constructor function
-//run data into constructor
-//copy template and set duplicated items
-//append dom
+
 $().ready(() => {
   const animalArray = [];
   // get data with ajax
@@ -11,10 +7,13 @@ $().ready(() => {
     (hornyAnimals) => {
       //create a new animal object for each element in hornyAnimals array
       hornyAnimals.forEach((beast) => {
-        new Animal(beast).render();
+        new Animal(beast);
       });
       //run gather function after animals data was GOT with ajax
       gatherKeywords();
+      animalArray.forEach((critter) => {
+        $("main").append(critter.createHtml());
+      });
     }
   );
   //constructor function
@@ -26,21 +25,6 @@ $().ready(() => {
     this.horns = object.horns;
     animalArray.push(this);
   }
-  //method for rendering new section to DOM
-  Animal.prototype.render = function () {
-    //select all the html inside the template
-    const template = $("#photo-template").html();
-    //create new section
-    const $newSection = $(
-      `<section class="${this.keyword}">${template}</section>`
-    );
-    //new section based on tags from html
-    $newSection.find("h2").text(this.title);
-    $newSection.find("p").text(this.description);
-    $newSection.find("img").attr("src", this.image_url);
-    //append to DOM
-    $("main").append($newSection);
-  };
   //creates an array of unique keywords from out animal objects.
   const gatherKeywords = () => {
     const keywordArray = [];
@@ -68,9 +52,12 @@ $().ready(() => {
       }
     });
   }
+  Animal.prototype.createHtml = function () {
+    //get template from html
+    let template = $("#beast").html();
+    //use mustache to create new instance of template with object from data
+    let html = Mustache.render(template, this);
+    //return html from this method
+    return html;
+  };
 });
-/* <option value="default">Filter by Keyword</option> */
-//gather unique keywords
-//render them to the dropdown
-
-//listen for filter select and re-render just those objects.
