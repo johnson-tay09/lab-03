@@ -1,4 +1,4 @@
-# Lab: 02 - Flexbox and Templating
+# Lab: 03 - Flexbox and Templating
 
 ## Authors:
 
