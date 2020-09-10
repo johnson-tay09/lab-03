@@ -2,8 +2,8 @@
 
 ## Authors:
 
-Taylor Johnson
-Christopher Quiocho
+- Taylor Johnson
+- Christopher Quiocho
 
 ## Resources:
 
@@ -46,3 +46,13 @@ Start time: 3:50pm
 Finish time: 4:15pm
 
 Actual time needed to complete: 25 minutes.
+
+### Feature: #4 Sort the images
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 4:20pm
+
+Finish time: 6:20pm
+
+Actual time needed to complete: 120 minutes.
