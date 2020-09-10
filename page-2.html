@@ -12,10 +12,10 @@
       rel="stylesheet"
     />
     <script id="beast2" type="text/x-tmpl-mustache">
-        <section class="{{keyword}}">
-            <h2>{{title}}</h2>
-            <img src="{{image_url}}"/>
-            <p>{{description}}</p>
+      <section class="{{keyword}}">
+        <h2>{{title}}</h2>
+        <img src="{{image_url}}"/>
+        <p>{{description}}</p>
       </section>
     </script>
   </head>
@@ -25,15 +25,19 @@
       <select id="menu">
         <option value="default">Filter by Keyword</option>
       </select>
-    </header>
-    <main>
+      <select id="sorter2">
+        <option value="default">Sort Images</option>
+        <option value="alphabetical">Alphabetical</option>
+        <option value="number-horns">Number of Horns</option>
+      </select>
       <div class="pagination">
         <a href="">&laquo;</a>
         <a href="index.html">1</a>
         <a href="page-2.html">2</a>
         <a href="#">&raquo;</a>
       </div>
-    </main>
+    </header>
+    <main></main>
     <footer>
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
       <script src="https://unpkg.com/mustache@latest"></script>

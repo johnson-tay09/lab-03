@@ -11,6 +11,7 @@ $().ready(() => {
       });
       //run gather function after animals data was GOT with ajax
       gatherKeywords();
+      numberSort();
       animalArray.forEach((critter) => {
         $("main").append(critter.createHtml());
       });
@@ -38,10 +39,10 @@ $().ready(() => {
     keywordArray.forEach((keyword) => {
       //create new option tag, give it value, text of this keyword
       const $selector = $(`<option value="${keyword}">${keyword}</option>`);
-      $("select").append($selector);
+      $("#menu").append($selector);
     });
   };
-  // event handler on option click
+  // event handler on change to filter images
   $("#menu").on("change", eventHandler);
   function eventHandler(event) {
     $("section").hide();
@@ -52,6 +53,42 @@ $().ready(() => {
       }
     });
   }
+  // event handler on change to sort images
+  $("#sorter").on("change", sortHandler);
+  function sortHandler(event) {
+    $("main").empty();
+    if (event.target.value === "alphabetical") {
+      //call alphabet sort function
+      nameSort();
+    } else if (event.target.value === "number-horns") {
+      //call number sort function
+      numberSort();
+    }
+    animalArray.forEach((critter) => {
+      $("main").append(critter.createHtml());
+    });
+  }
+  const numberSort = () => {
+    animalArray.sort((a, b) => {
+      a = a.horns;
+      b = b.horns;
+      return a - b;
+    });
+  };
+  const nameSort = () => {
+    animalArray.sort((a, b) => {
+      a = a.title.toLowerCase();
+      b = b.title.toLowerCase();
+      if (a > b) {
+        return 1;
+      } else if (a < b) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  };
+
   Animal.prototype.createHtml = function () {
     //get template from html
     let template = $("#beast").html();
